@@ -72,13 +72,13 @@ impl<'a> HashChainNode<'a> {
         self.count += 1;
     }
 
-    pub fn rehash(&mut self, head: &NodePt<'a>, table: &mut HashMap<usize, NodePt<'a>>) {
+     fn rehash(&mut self, head: &NodePt<'a>, table: &mut HashMap<usize, NodePt<'a>>) {
         let mut pt = head.clone();
         loop {
             let index = self.get_table_index(&RefCell::borrow(&pt));
             let data = RefCell::borrow(&pt).data.clone();
             match data {
-                Some(d) => {
+                Some(_d) => {
                     HashChainNode::insert_table(table, index, new_node_ptr!(RefCell::borrow(&pt).data.clone()));
                 },
                 None => {
