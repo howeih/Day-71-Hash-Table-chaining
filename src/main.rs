@@ -56,7 +56,7 @@ impl<'a> Default for HashChainNode<'a> {
         Self {
             size: 1,
             count: 0,
-            radio_expand: 1.25,
+            radio_expand: 0.75,
             ratio_shrink: 0.5,
             table: HashMap::new(),
         }
